@@ -1,8 +1,10 @@
 .App {
-    background: linear-gradient(to top, #ff00cc, #333399);
+
+    background-color: #eec0c6;
+    background-image: linear-gradient(315deg, #eec0c6 0%, #7ee8fa 74%);
     min-height: 100vh;
     display: grid;
-    grid-template-columns: 1fr minmax(auto, 800px) 1fr;
+    grid-template-columns: 1fr minmax(auto, 1000px) 1fr;
     grid-template-rows: 100px auto;
     grid-row-gap: 10px;
     grid-column-gap: 10px;
@@ -11,7 +13,8 @@
 
 .App-navigation {
     padding: 10px;
-    color: white;
+    color: black;
+
 }
 
 .App-sidebar {
@@ -32,12 +35,16 @@
     font-size: 2em;
 }
 
+
+
 .App-navigation {
+    
     grid-column: 2 / span 1;
     display: flex;
     justify-content: space-between;
     align-items: center;
     cursor: pointer;
+
 }
 
 .App-navigation a {
@@ -51,5 +58,8 @@
 .App-mainContent {
     grid-column: 2;
 }
+
+
+
 
 
