@@ -17,17 +17,15 @@ class App extends Component {
     return (
       <div className="App">
         <nav className="App-navigation">
-          <h1 className="App-title">Get sh*t done!</h1>
-          
+          <h1 className="App-title">To-Do-Ish: Get sh*t done today!</h1>
+          {/*v<h1 className="App-title">To-Do-Ish: Get sh*t done!</h1>*/}
           {/*<Link to="/">Welcome</Link>*/}
           <Link to="/todo/">Todo</Link>
           {/* <Link to="/todolist/">TodoList</Link> */}
           <Link to="/blog/">Blog</Link>
           {/* <Link to="/write/">Write Article</Link> */}
         </nav>
-        <div>
-        <h2 >To Do, when there's nothing else.</h2>
-        </div>
+
 
         <div className="App-mainContent">
           <Switch> 
