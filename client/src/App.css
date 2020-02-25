@@ -1,7 +1,7 @@
 .App {
 
     background-color: #eec0c6;
-    background-image: linear-gradient(315deg, #eec0c6 0%, #7ee8fa 74%);
+    background-image: url("./img.jpg");
     min-height: 100vh;
     display: grid;
     grid-template-columns: 1fr minmax(auto, 1000px) 1fr;
@@ -10,6 +10,8 @@
     grid-column-gap: 10px;
     align-items: stretch;
 }
+
+/* linear-gradient(315deg, #eec0c6 0%, #7ee8fa 74%);*/
 
 .App-navigation {
     padding: 10px;
