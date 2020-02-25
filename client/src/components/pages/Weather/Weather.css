@@ -39,10 +39,22 @@
 .WeatherDashboard-location {
   grid-column: 1 / span 2;
   grid-row: 1;
+}
+
+.WeatherDashboard-location,
+.WeatherDashboard-location > input {
   font-size: 10vh;
   font-weight: bolder;
   text-shadow: 0 0 20px white;
   text-shadow: 3px 3px 20px rgba(0, 0, 0, 0.5);
+}
+
+.WeatherDashboard-location > input {
+  border: 0;
+  background: none;
+  max-width: 80%;
+  color: white;
+  display: inline;
 }
 
 .WeatherDashboard-details {
@@ -99,21 +111,27 @@
   vertical-align: top;
 }
 
-.Controls {
-  display: flex;
-  grid-column: 1 / span 2;
+.WeatherDashboard-location button {
+  background: none;
+  border: none;
+  color: white;
+  vertical-align: top;
+  opacity: 0.0;
+  transition: opacity 1s;
 }
 
-.Controls input,
-.Controls button {
-  font-size: 1.2em;
-  background-color: rgba(255, 255, 255, 0.5);
-  border: 2px ridge white;
-  color: black;
-  padding: 5px;
-  display: inline-block;
+.WeatherDashboard-location:hover button {
+  opacity: 0.3;
 }
 
+.WeatherDashboard-location input + button {
+  opacity: 0.6;
+  font-size: 20pt;
+}
+
+.WeatherDashboard-location:hover input + button {
+  opacity: 1.0;
+}
 /*
 const backgrounds = {
   clear: 'https://i.imgur.com/yREBbu7.jpg',
@@ -126,8 +144,72 @@ const backgrounds = {
 
 
 
-.Form input,
-.Form textarea,
-.Form button {
+
+.loader,
+.loader:before,
+.loader:after {
+  border-radius: 50%;
+}
+.loader {
+  color: #ffffff;
+  font-size: 11px;
+  text-indent: -99999em;
+  margin: 55px auto;
+  position: relative;
+  width: 10em;
+  height: 10em;
+  box-shadow: inset 0 0 0 1em;
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+}
+.loader:before,
+.loader:after {
+  position: absolute;
+  content: '';
+}
+.loader:before {
+  width: 5.2em;
+  height: 10.2em;
+  background: #0dc5c1;
+  border-radius: 10.2em 0 0 10.2em;
+  top: -0.1em;
+  left: -0.1em;
+  -webkit-transform-origin: 5.2em 5.1em;
+  transform-origin: 5.2em 5.1em;
+  -webkit-animation: load2 2s infinite ease 1.5s;
+  animation: load2 2s infinite ease 1.5s;
+}
+.loader:after {
+  width: 5.2em;
+  height: 10.2em;
+  background: #0dc5c1;
+  border-radius: 0 10.2em 10.2em 0;
+  top: -0.1em;
+  left: 5.1em;
+  -webkit-transform-origin: 0px 5.1em;
+  transform-origin: 0px 5.1em;
+  -webkit-animation: load2 2s infinite ease;
+  animation: load2 2s infinite ease;
+}
+@-webkit-keyframes load2 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes load2 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
 }
 

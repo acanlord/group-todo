@@ -1,19 +1,20 @@
 import React, { Component } from 'react';
-import './Weather.css';
+import './App.css';
 
-class Weather extends Component {
+class App extends Component {
   state = {
-    searchBox: 'San Francisco, California',
+    searchBox: '',
     description: '',
     isLoading: false,
   }
 
   doFetch = () => {
-    console.log('Hitting refresh', this.state.searchBox);
+    console.log('hitting refresh', this.state.searchBox);
     const query = this.state.searchBox.replace(/ /g, '+');
     const url = 'http://api.openweathermap.org/data/2.5/weather?q=' +
       query + '&appid=0de82b6b4ba5d843dac44bbee4d02543';
     this.setState({
+      showControls: false,
       isLoading: true,
     });
     fetch(url)
@@ -34,38 +35,76 @@ class Weather extends Component {
         // Do state set for real data
         this.setState({
           location: data.name,
-          temperature: Math.round((1.8 * (data.main.temp - 273)) + 32),
+          temperature: Math.round(data.main.temp - 273),
           description: data.weather[0].main,
           windSpeed: Math.round(data.wind.speed),
           humidity: Math.round(data.main.humidity),
           pressure: Math.round(data.main.pressure),
           isLoading: false,
         });
+
+        // Save to localStorage
+        localStorage.setItem('weathersearch', this.state.searchBox);
       });
   }
 
   componentDidMount = (ev) => {
-    this.doFetch();
+    // Restore from local storage, if available
+    let prevSearch = localStorage.getItem('weathersearch');
+    if (!prevSearch) {
+      prevSearch = 'Oakland, California';
+    }
+    this.setState({searchBox: prevSearch}, this.doFetch);
   }
 
   onSearchBoxChange = (ev) => {
     this.setState({searchBox: ev.target.value});
   }
 
+  showEdit = () => {
+    this.setState({
+      showControls: true,
+    });
+  }
+
   render() {
-    console.log('rendering!');
+
+    // Guess what type of weather this is so we can use the
+    // appropriate class to style the background conditionally based
+    // on the weather that we have
+    const appClasses = ['App'];
+    const desc = this.state.description.toLowerCase();
+    if (desc.includes('clear')) {
+      appClasses.push('App--clear');
+    } else if (desc.includes('cloud')) {
+      appClasses.push('App--cloud');
+    } else if (desc.includes('storm')) {
+      appClasses.push('App--storm');
+    } else if (desc.includes('rain')) {
+      appClasses.push('App--rain');
+    }
 
     return (
-      <div className='App App--clear'>
+      <div className={appClasses.join(' ')}>
         <div className="WeatherDashboard">
           {this.state.isLoading ? <div className="loading"></div> : null}
-          <div className="WeatherDashboard-location">
-            {this.state.location}
-          </div>
-
+          {this.state.showControls ? (
+              <div className="WeatherDashboard-location">
+                <input placeholder="Enter location name"
+                  value={this.state.searchBox}
+                  onChange={this.onSearchBoxChange} />
+                <button onClick={this.doFetch}>✓</button>
+              </div>
+            ) : (
+              <div className="WeatherDashboard-location">
+                <span>{this.state.location}</span>
+                <button onClick={this.showEdit}>🖉</button>
+              </div>
+            )
+          }
           <div className="WeatherDashboard-overview">
             <span className="WeatherDashboard-temperature">
-              {this.state.temperature}° <span>F</span>
+              {this.state.temperature}° <span>C</span>
             </span>
             <div className="WeatherDashboard-description">{this.state.description}</div>
           </div>
@@ -77,16 +116,10 @@ class Weather extends Component {
             <div className="WeatherDashboard-label">Pressure</div>
             <div className="WeatherDashboard-data">{this.state.pressure}</div>
           </div>
-          <div className="Controls">
-            <input placeholder="Enter location name"
-              value={this.state.searchBox}
-              onChange={this.onSearchBoxChange} />
-            <button onClick={this.doFetch}>Refresh</button>
-          </div>
         </div>
       </div>
     );
   }
 }
 
-export default Weather;
+export default App;
