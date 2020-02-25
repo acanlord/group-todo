@@ -28,10 +28,6 @@ code {
   margin:40px; 
   background-color: white;
 
-
-  -webkit-box-shadow: 10px 10px 31px -5px rgba(0,0,0,0.66);
-  -moz-box-shadow: 10px 10px 31px -5px rgba(0,0,0,0.66);
-  box-shadow: 10px 10px 31px -5px rgba(0,0,0,0.66);
 }
 
 

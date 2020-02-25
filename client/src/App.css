@@ -1,7 +1,7 @@
 .App {
 
     background-color: #eec0c6;
-    background-image: url("./img1.jpg");
+    background-image: url("./img2.jpg");
     min-height: 100vh;
     display: grid;
     grid-template-columns: 1fr minmax(auto, 1000px) 1fr;
@@ -43,7 +43,6 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    cursor: pointer;
 
 }
 
@@ -52,7 +51,6 @@
     text-decoration: none;
     color: black;
     font-weight: bold;
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5) inset;
 }
 
 .App-mainContent {
