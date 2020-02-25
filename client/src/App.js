@@ -5,9 +5,10 @@ import './App.css';
 
 import LandingPage from './components/pages/LandingPage/LandingPage.js';
 // import Todo from './components/pages/Todo/Todo.js';
-import TodoList from './components/pages/TodoList/TodoList.js';
+import TodoList from './components/pages/Todo/TodoList.js';
 import Blog from './components/pages/Blog/Blog.js';
 import WriteArticle from './components/pages/WriteArticle/WriteArticle.js';
+import Calendar from './components/pages/Calendar/Calendar.js';
 
 class App extends Component {
   render() {
@@ -20,6 +21,7 @@ class App extends Component {
           <Link to="/todolist/">TodoList</Link>
           <Link to="/blog/">Blog</Link>
           <Link to="/write/">Write Article</Link>
+          <Link to="/calendar/">Calendar</Link>
         </nav>
 
         <div className="App-mainContent">
@@ -29,6 +31,7 @@ class App extends Component {
             <Route exact path='/todolist/' component={TodoList} />
             <Route exact path='/blog/' component={Blog} />
             <Route exact path='/write/' component={WriteArticle} />
+            <Route exact path='/calendar/' component={Calendar} />
           </Switch>
         </div>
 

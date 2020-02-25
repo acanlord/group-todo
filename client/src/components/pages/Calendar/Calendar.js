@@ -1,13 +1,29 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom'
+import DatePicker from "react-datepicker";
+import TodoItems from "../Todo/TodoItems.js";
+ 
+import "react-datepicker/dist/react-datepicker.css";
 
 import './Calendar.css';
 class Calendar extends Component {
-  render() => {
-  const [startDate, setStartDate] = useState(new Date());
-  return (
-    <DatePicker selected={startDate} onChange={date => setStartDate(date)} />
-  );
-};
-
+  state = {
+    startDate: new Date()
+  };
+ 
+  handleChange = date => {
+    this.setState({
+      startDate: date
+    });
+  };
+ 
+  render() {
+    return (
+      <DatePicker
+        selected={this.state.startDate}
+        onSelect={this.handleSelect}
+        onChange={this.handleChange}
+      />
+    );
+  }
+}
 export default Calendar;
