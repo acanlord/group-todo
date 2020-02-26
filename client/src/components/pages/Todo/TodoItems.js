@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+// import "./TodoItems.css"
 
 class TodoItems extends Component {
   state = {
@@ -44,8 +45,8 @@ class TodoItems extends Component {
       <div className="EnterTask">
         <h1>Eneter a task</h1>
         <input
-            name="title"
-            placeholder="Title"
+            name="TaskList"
+            placeholder="Task"
             value={this.state.title}
             onChange={this.onChangeTitle}
           />

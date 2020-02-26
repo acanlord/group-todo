@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 
 class TodoList extends Component {
   state = {
-    blogPosts: [],
+    todoItems: [],
   }
 
   componentDidMount() {
@@ -17,7 +17,7 @@ class TodoList extends Component {
       .then(data => {
         console.log('Got data back, Fetch', data);
         this.setState({
-          blogPosts: data,
+          todoItems: data,
         });
       });
   }
@@ -72,7 +72,7 @@ class TodoList extends Component {
       <div className="Todo">
         <h1>Task List</h1>
         {
-          this.state.blogPosts.map((post, index) => (
+          this.state.todoItems.map((post, index) => (
             <div className="Todo-Items" key={post._id}>
 
               <h1>{post.title}</h1>
