@@ -1,4 +1,5 @@
-# TodoList 
+# TodoList Full stack app 
+
 
 # install npm
 npm install 
