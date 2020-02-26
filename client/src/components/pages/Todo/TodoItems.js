@@ -32,8 +32,8 @@ class TodoItems extends Component {
       .then(response => response.json())
       .then(data => {
         console.log('Got this back, from Todo', data);
-
-        // Redirect to /todo 
+          
+        // Redirect to /todo, broken need to fix this for App Refresh 
         // this.props.history.push('/todo/');
       });
   }

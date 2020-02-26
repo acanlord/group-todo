@@ -6,7 +6,6 @@ import React from "react"
   function TodoView() {
       return (
           <div>
-              {/* <h1>Todo list</h1> */}
               <TodoItems />
               <TodoList />
           </div>
