@@ -43,7 +43,7 @@ class TodoItems extends Component {
   render() {
     return (
       <div className="EnterTask">
-        <h1>Eneter a task</h1>
+        <h1>Enter a task</h1>
         <input
             name="TaskList"
             placeholder="Task"
