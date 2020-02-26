@@ -1,69 +1,98 @@
-import React, { Component } from "react";
-import TodoItems from "./TodoItems";
-import "./TodoList.css"
+import React, { Component } from 'react';
+
 
 class TodoList extends Component {
+  state = {
+    blogPosts: [],
+  }
 
-    constructor(props) {
-        super(props);
+  componentDidMount() {
+    this.fetchPosts();
+  }
 
-        this.state = {
-            items: []
-        };
+  fetchPosts() {
+    console.log('Fetching data from API');
+    fetch('/api/mongodb/todo/')
+      .then(response => response.json())
+      .then(data => {
+        console.log('Got data back, Fetch', data);
+        this.setState({
+          blogPosts: data,
+        });
+      });
+  }
 
-        this.addItem = this.addItem.bind(this);
-        this.deleteItem = this.deleteItem.bind(this);
+  deleteTask(taskId) {
+    console.log('Sending DELETE for', taskId);
+    // Do the DELETE, using "?_id=" to specify which document we are deleting
+    fetch('/api/mongodb/todo/?_id=' + taskId, {
+        method: 'DELETE',
+      })
+      .then(response => response.json())
+      .then(data => {
+        console.log('Got this back', data);
+
+        // Call method to refresh data
+        this.fetchPosts();
+      });
+  }
+
+  voteArticle(article) {
+    let newVoteCount = article.voteCount;
+
+    // Increase the vote count 
+    if (!newVoteCount) {
+      newVoteCount = 1;
+    } else {
+      newVoteCount++;
     }
 
-    addItem(e) {
-        if (this._inputElement.value !== "") {
-            var newItem = {
-                text: this._inputElement.value,
-                key: Date.now()
-            };
-            
-            this.setState((prevState) => {
-            return { 
-              items: prevState.items.concat(newItem) 
-            };
-          });
+    const formData = {
+      voteCount: newVoteCount,
+    };
+
+    // Do the PUT, using "?_id=" to specify which document we are affecting
+    const taskId = article._id;
+    fetch('/api/mongodb/todo/?_id=' + taskId, {
+        method: 'PUT',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(formData),
+      })
+      .then(response => response.json())
+      .then(data => {
+        console.log('Got this back, Put', data);
+
+        // Call method to refresh data
+        this.fetchPosts();
+      });
+  }
+
+  render() {
+    return (
+      <div className="Todo">
+        <h1>Task List</h1>
+        {
+          this.state.blogPosts.map((post, index) => (
+            <div className="Todo-Items" key={post._id}>
+
+              <h1>{post.title}</h1>
+              <p>{post.text}</p>
+
+              <div className="Todo-Actions">
+                <div onClick={() => this.deleteTask(post._id)}>
+                  <span alt="delete this">🗑</span>
+                </div>
+                {/* <div onClick={() => this.voteArticle(post)}>
+                  <span alt="upvote this">⬆ {post.voteCount}</span>
+                </div> */}
+              </div>
+            </div>
+          ))
         }
-
-    this._inputElement.value = "";
-
-    console.log(this.state.items);
-
-    e.preventDefault();
-} 
-
-deleteItem(key){
-    console.log("key in deleteItem: " + key)
-    console.log("Items at Delte:" + this.state.items)
-     var filteredItems = this.state.items.filter(function(item){
-     return (item.key !== key);
- });
-
- this.setState({
-    items:filteredItems
-});
+      </div>
+    );
+  }
 }
 
-    render() {
-        return (
-        <div className="todoListMain">
-            <div className="header">
-            <form onSubmit={this.addItem}>
-            <input ref={(a) => this._inputElement = a}
-            placeholder="enter task">
-            </input>
-            <button type="submit">BAM!</button>
-            </form >
-            </div>
-            <TodoItems entries={this.state.items}
-                        delete={this.deleteItem}/>
-        </div>
-    );
-    }
-} 
-
 export default TodoList;
+

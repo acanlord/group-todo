@@ -1,9 +1,14 @@
 # TodoList 
 
-# Issues you might have starting this app.
+# install npm
+npm install 
 
-1. create .env.local , Add the following 
-MONGODB_URI='mongodb+srv://hippee:kickstart@cluster0-tfr9k.mongodb.net/test'
+#Requirements for starting this app
+cp .env.local.bak .env.local
+source .env.local
 
-2. unlink node_modules & reinstall
-3. ./run.sh and the application should work!
+# Start Back End
+./node_modules/nodemon/bin/nodemon.js server.js
+
+# Start Front end
+./run.sh and the application should work!
