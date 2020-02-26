@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Copy in mongo env file
+cp .env.local.bak .env.local
+
 # This is a simple Bash script that will get both the front-end running and the
 # backend running simultaneously
 

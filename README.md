@@ -8,4 +8,6 @@ npm install
 ./start_node.sh
 
 # Start Front end
-./run.sh and the application should work!
+./run.sh
+
+# The application should now be functional
