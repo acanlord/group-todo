@@ -7,6 +7,9 @@ import LandingPage from './components/pages/LandingPage/LandingPage.js';
 import Todo from './components/pages/Todo/Todo.js';
 import Calendar from './components/pages/Calendar/Calendar.js';
 import Weather from './components/pages/Weather/Weather.js';
+import todoImage from './todo.png';
+import calendarImage from './calendar.png';
+import weatherImage from './weather.png';
 
 
 class App extends Component {
@@ -17,9 +20,9 @@ class App extends Component {
           <h1 className="App-title">To-Do-Ish!</h1>
           {/*v<h1 className="App-title">To-Do-Ish: Get sh*t done!</h1>*/}
           {/*<Link to="/">Welcome</Link>*/}
-          <Link to="/todo/">To-Do-Ish</Link>
-          <Link to="/calendar/">Calendar</Link>
-          <Link to="/weather/">Weather</Link>
+          <Link to="/todo/"><img className="photo" src={todoImage} /></Link>
+          <Link to="/calendar/"><img className="photo" src={calendarImage} /></Link>
+          <Link to="/weather/"><img className="photo" src={weatherImage} /></Link>
         </nav>
 
 
