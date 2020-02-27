@@ -5,7 +5,7 @@
 npm install 
 
 # Start Back End
-./start_node.sh
+./start_backend.sh
 
 # Start Front end
 ./run.sh
