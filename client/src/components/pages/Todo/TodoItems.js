@@ -4,14 +4,14 @@ import "./TodoItems.css"
 class TodoItems extends Component {
   state = {
     title: '',
-    text: '',
+    // text: '',
   }
 
-  onChangeContent = (ev) => {
-    this.setState({
-      text: ev.target.value,
-    });
-  }
+  // onChangeContent = (ev) => {
+  //   this.setState({
+  //     text: ev.target.value,
+  //   });
+  // }
 
   onChangeTitle = (ev) => {
     this.setState({
@@ -22,7 +22,7 @@ class TodoItems extends Component {
   submit = () => {
     const formData = {
       title: this.state.title,
-      text: this.state.text,
+      // text: this.state.text,
     };
 
     fetch('/api/mongodb/todo/', {
@@ -35,7 +35,7 @@ class TodoItems extends Component {
         console.log('Got this back, from Todo', data);
           
         // Redirect to /todo, broken need to fix this for App Refresh 
-        // this.props.history.push('/todo/TodoItems');
+        // this.props.history.push('/todo/');
       });
   }
 
