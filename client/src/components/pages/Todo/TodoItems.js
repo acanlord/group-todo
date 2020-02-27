@@ -35,7 +35,7 @@ class TodoItems extends Component {
         console.log('Got this back, from Todo', data);
           
         // Redirect to /todo, broken need to fix this for App Refresh 
-        this.props.history.push('/todo/TodoItems');
+        // this.props.history.push('/todo/TodoItems');
       });
   }
 
