@@ -1,14 +1,12 @@
 .App {
     background-image: url("./img2.jpg");
-    /* min-height: 100vh; */
-
-    /* Full height */
-    min-Height: 100%; 
+    min-height: 100vh;
+    /* min-height: 100%;  */
 
     /* Center and scale the image nicely */
-    background-position: center;
+    /* background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: cover; */
     
     display: grid;
     grid-template-columns: 1fr minmax(auto, 1000px) 1fr;
