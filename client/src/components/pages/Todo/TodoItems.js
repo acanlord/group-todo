@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import "./TodoItems.css"
+import "./TodoItems.css"
 
 class TodoItems extends Component {
   state = {
@@ -51,7 +51,6 @@ class TodoItems extends Component {
             onChange={this.onChangeTitle}
           />
         <br />
-
         <button onClick={this.submit}>Add Tasks</button>
       </div>
 

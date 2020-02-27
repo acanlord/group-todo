@@ -1,14 +1,14 @@
-.Blog {
+.TodoList {
 }
 
-.Blog-article {
+.TodoList {
   background: white;
   padding: 10px;
   margin: 10px;
   position: relative;
 }
 
-.Blog-articleActions > div {
+.Todo-Actions > div {
   display: inline-block;
   position: absolute;
   top: 10px;
@@ -16,11 +16,11 @@
   user-select: none;
 }
 
-.Blog-articleActions > div:first-child {
+.Todo-Actions > div:first-child {
   right: 10px;
 }
 
-.Blog-articleActions > div:last-child {
+.Todo-Actions > div:last-child {
   left: 10px;
 }
 
