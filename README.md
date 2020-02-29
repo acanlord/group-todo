@@ -20,6 +20,7 @@ Search today's weather
 HTML<br/>
 CSS<br/>
 JavaScript<br/>
-MongoDB
+MongoDB<br/>
+React
 
 # The application should now be functional
