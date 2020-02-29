@@ -9,20 +9,24 @@
   grid-template-rows: 1fr 2fr 1fr; */
 }
 
-.App--storm {
+.App--Storm {
   background-image: url('https://i.imgur.com/4k5lY6F.jpg');
 }
 
-.App--cloud {
+.App--Clouds {
   background-image: url('https://i.imgur.com/jSJ1cMc.jpg');
 }
 
-.App--clear {
+.App--Clear {
   background-image: url('https://i.imgur.com/yREBbu7.jpg');
 }
 
-.App--rain {
+.App--Rain {
   background-image: url('https://i.imgur.com/qxTGH8T.jpg');
+}
+
+.App--Mist {
+  background-image: url('https://c.pxhere.com/photos/66/0d/fog_foggy_mist_misty_road-971188.jpg!d');
 }
 
 .WeatherDashboard {

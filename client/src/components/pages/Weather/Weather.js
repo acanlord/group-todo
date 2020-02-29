@@ -3,7 +3,7 @@ import './Weather.css';
 
 class Weather extends Component {
   state = {
-    searchBox: 'San Francisco, California',
+    searchBox: 'Oakland, California',
     description: '',
     isLoading: false,
   }
@@ -39,8 +39,44 @@ class Weather extends Component {
           windSpeed: Math.round(data.wind.speed),
           humidity: Math.round(data.main.humidity),
           pressure: Math.round(data.main.pressure),
+          skypic: "",
           isLoading: false,
         });
+        if (data.weather[0].main == "Clouds") {
+          this.setState({
+            skypic: 'App App--Clouds',
+
+          });
+          return
+        }
+        if (data.weather[0].main == "Clear") {
+          this.setState({
+            skypic: 'App App--Clear',
+
+          });
+          return
+        }
+        if (data.weather[0].main == "Rain") {
+          this.setState({
+            skypic: 'App App--Rain',
+
+          });
+          return
+        }
+        if (data.weather[0].main == "Storm") {
+          this.setState({
+            skypic: 'App App--Storm',
+
+          });
+          return
+        }
+        if (data.weather[0].main == "Mist") {
+          this.setState({
+            skypic: 'App App--Mist',
+
+          });
+          return
+        }                                          
       });
   }
 
@@ -56,7 +92,7 @@ class Weather extends Component {
     console.log('rendering!');
 
     return (
-      <div className='App App--clear'>
+      <div className={this.state.skypic}>
         <div className="WeatherDashboard">
           {this.state.isLoading ? <div className="loading"></div> : null}
           <div className="WeatherDashboard-location">
