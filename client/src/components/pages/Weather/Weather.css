@@ -26,7 +26,15 @@
 }
 
 .App--Mist {
-  background-image: url('https://c.pxhere.com/photos/66/0d/fog_foggy_mist_misty_road-971188.jpg!d');
+  background-image: url('https://i.imgur.com/buUBhoS.jpg');
+}
+
+.App--Haze {
+  background-image: url('https://i.imgur.com/AzW9mby.jpg');
+}
+
+.App--Snow {
+  background-image: url('https://i.imgur.com/teQ9oX8.jpg');
 }
 
 .WeatherDashboard {

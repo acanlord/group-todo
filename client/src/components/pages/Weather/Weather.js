@@ -76,7 +76,21 @@ class Weather extends Component {
 
           });
           return
-        }                                          
+        }
+        if (data.weather[0].main == "Haze") {
+          this.setState({
+            skypic: 'App App--Haze',
+
+          });
+          return
+        }
+        if (data.weather[0].main == "Snow") {
+          this.setState({
+            skypic: 'App App--Snow',
+
+          });
+          return
+        }                                                                
       });
   }
 
