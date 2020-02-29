@@ -11,15 +11,15 @@ npm install
 ./run.sh
 
 # Features
-Add new task
-Delete a task
-Choose a date from the calendar
+Add new task<br/>
+Delete a task<br/>
+Choose a date from the calendar<br/>
 Search today's weather
 
 # Technologies Used
-HTML
-CSS
-JavaScript
+HTML<br/>
+CSS<br/>
+JavaScript<br/>
 MongoDB
 
 # The application should now be functional
