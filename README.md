@@ -1,5 +1,5 @@
 # TodoList Full Stack App 
-To-Do-Ish is a minimalistic web application that save tasks, displays a calendar, and provides today's weather.
+To-Do-ish is a minimalistic web application that save tasks, displays a calendar, and provides today's weather.
 
 # Install npm
 npm install 

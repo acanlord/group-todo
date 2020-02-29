@@ -17,7 +17,7 @@ class App extends Component {
     return (
       <div className="App">
         <nav className="App-navigation">
-          <h1 className="App-title">To-Do-Ish!</h1>
+          <h1 className="App-title">To-Do-ish!</h1>
           {/*v<h1 className="App-title">To-Do-Ish: Get sh*t done!</h1>*/}
           {/*<Link to="/">Welcome</Link>*/}
           <Link to="/todo/"><img className="photo" src={todoImage} /></Link>
