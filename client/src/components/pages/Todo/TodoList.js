@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import "./TodoList.css";
 
 class TodoList extends Component {
   state = {
@@ -37,35 +36,6 @@ class TodoList extends Component {
       });
   }
 
-  voteArticle(article) {
-    let newVoteCount = article.voteCount;
-
-    // Increase the vote count 
-    if (!newVoteCount) {
-      newVoteCount = 1;
-    } else {
-      newVoteCount++;
-    }
-
-    const formData = {
-      voteCount: newVoteCount,
-    };
-
-    // Do the PUT, using "?_id=" to specify which document we are affecting
-    const taskId = article._id;
-    fetch('/api/mongodb/todo/?_id=' + taskId, {
-        method: 'PUT',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify(formData),
-      })
-      .then(response => response.json())
-      .then(data => {
-        console.log('Got this back, Put', data);
-
-        // Call method to refresh data
-        this.fetchPosts();
-      });
-  }
 
   render() {
     return (
